@@ -6,7 +6,7 @@ from decimal import Decimal
 class TestStockData(unittest.TestCase):
 
     def setUp(self):
-        # Connect to MySQL database
+    
         self.db_connection = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -16,12 +16,12 @@ class TestStockData(unittest.TestCase):
         self.cursor = self.db_connection.cursor()
 
     def tearDown(self):
-        # Close the database connection after each test
+       
         self.cursor.close()
         self.db_connection.close()
 
     def test_data_validity(self):
-        # Fetch data from MySQL
+        
         self.cursor.execute("SELECT Datetime,Close,High,Low,Open,Volume,Instrument FROM stock_data")
         data = self.cursor.fetchall()
 
